@@ -20,18 +20,20 @@ header {
 nav {
   position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;           /* ← assure que ça commence bien à gauche */
+  right: 0;          /* ← et s’étend jusqu’à droite */
+  width: 100vw;      /* ← largeur complète de la fenêtre */
   display: flex;
-  justify-content: center; /* Centrer horizontalement */
+  justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.7); /* Fond sombre transparent */
+  background-color: rgba(0, 0, 0, 0);
   padding: 1rem 0;
   z-index: 1000;
 }
 
 nav div {
   display: flex;
-  gap: 3rem; /* ← ESPACE entre les liens */
+  gap: 4rem; /* ← ESPACE entre les liens */
 }
 
 nav a {
@@ -40,8 +42,8 @@ nav a {
   font-size: 1.2rem;
   font-weight: bold;
   padding: 0.5rem 1rem;
-  background-color: rgba(255, 255, 255, 0.1); /* Fond clair pour lisibilité */
-  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.201); /* Fond clair pour lisibilité */
+  border-radius: 4px;
   transition: background-color 0.3s;
 }
 
@@ -129,12 +131,17 @@ footer {
 }
 .carousel {
   position: relative;
+  width: 100%;
   max-width: 600px;
+  height: 400px; /* Fixe une hauteur (ajuste selon ton design) */
   margin: auto;
   text-align: center;
+  overflow: hidden;
 }
 .carousel img {
   width: 100%;
+  height: 100%;
+  object-fit: cover; /* remplissage propre, sans déformation */
   border-radius: 10px;
 }
 .carousel button {
