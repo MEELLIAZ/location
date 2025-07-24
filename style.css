@@ -18,19 +18,27 @@ header {
   padding: 2rem;
 }
 nav {
-  position: flex;
+  position: fixed; /* CORRECT: fixe la barre */
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* centre les liens au milieu */
   align-items: center;
-  color: rgb(255, 255, 255);
+  background-color: #1e1a16; /* ajoute un fond si besoin */
+  padding: 1rem;
+  z-index: 1000;
 }
+
+nav div {
+  display: flex;
+  gap: 2rem; /* ESPACE ENTRE LES DEUX LIENS */
+}
+
 nav a {
   color: rgb(255, 255, 255);
   text-decoration: none;
-  margin-right: 2rem;
-  border-right: 1px solid #ccc;
-  padding-right: 1rem;
+  font-size: 1.1rem;
 }
+
 .hero-text {
   font-size: 4rem;
   color: white;
