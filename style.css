@@ -1,0 +1,335 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: #f3ede4;
+  color: #1e1a16;
+  scroll-behavior: smooth;
+}
+#loader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #f3ede4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+#loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.spinner {
+  border: 5px solid #ccc;
+  border-top: 5px solid #1e1a16;
+  border-radius: 50%;
+  width: 50px; height: 50px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+header {
+  position: relative;
+  background: url('images/header-bg.jpg') center/cover fixed no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+nav div {
+  display: flex;
+  gap: 4rem;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.176);
+}
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 4rem;
+  color: white;
+  max-width: 800px;
+  z-index: 2;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+section {
+  padding: 5rem 2rem;
+}
+section#biens, section#apropos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.left, .right {
+  flex: 1;
+}
+.left h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.left p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.btn {
+  background: #1e1a16;
+  color: rgb(255, 255, 255);
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  border: none;
+}
+.btn:hover {
+  background: #3a2e25;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.image-right {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: auto;
+}
+form input, form textarea {
+  padding: 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+footer {
+  background-color: #1e1a16;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+.socials a {
+  margin: 0 1rem;
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+.center {
+  text-align: center;
+}
+.section-title {
+  position: relative;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+.section-title::after {
+  content: "";
+  width: 50%;
+  height: 3px;
+  background: #1e1a16;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.location-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 2rem auto;
+  max-width: 800px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  margin: auto;
+  text-align: center;
+  overflow: hidden;
+}
+.carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.carousel img:hover {
+  transform: scale(1.02);
+}
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent; /* ou transparent si souhaité */
+  color: rgb(255, 255, 255);
+  border: rgba(0, 0, 0, 0.064);
+  padding: 1rem; /* ↗ augmente la taille */
+  cursor: pointer;
+  font-size: 2.5rem; /* ↗ agrandit la flèche */
+  border-radius: 35%;
+  z-index: 5;
+}
+.carousel button:hover {
+  background: rgba(0, 0, 0, 0.091);
+  transform: translateY(-50%) scale(1);
+}
+
+.carousel button:first-of-type {
+  left: 10px;
+}
+.carousel button:last-of-type {
+  right: 10px;
+}
+.map-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+@media (max-width: 1024px) {
+  .hero-text {
+    font-size: 3rem;
+  }
+  .left h2 {
+    font-size: 2.5rem;
+  }
+  .left p {
+    font-size: 1.1rem;
+  }
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 768px) {
+  section#biens, section#apropos {
+    flex-direction: column;
+    text-align: center;
+  }
+  .slider {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .slider img {
+    max-width: 100%;
+  }
+  .hero-text {
+    font-size: 2.2rem;
+    max-width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  .left h2 {
+    font-size: 2rem;
+  }
+  nav a {
+    margin: 0.5rem 0;
+  }
+  nav {
+    align-items: center;
+  }
+}
+
+/* Animation d'apparition depuis la gauche */
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.8s ease;
+}
+.scroll-reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Effet de zoom sur les cartes */
+.location-card:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+/* Animation légère sur les titres */
+.section-title {
+  animation: pulse 2s ease infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+/* Bouton retour en haut */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  background: #1e1a16;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+#scrollTopBtn:hover {
+  background: #3a2e25;
+}
